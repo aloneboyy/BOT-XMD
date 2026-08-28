@@ -42,7 +42,7 @@ cmd({
         caption += `╰┄┄┄┄┄┄┄┄┄┄┄┄⪼`;
 
         await conn.sendMessage(m.chat, {
-            image: { url: "https://files.catbox.moe/prkkzj.png" },
+            image: { url: "https://files.catbox.moe/x7kou9.png" },
             caption,
             contextInfo: {
                 forwardingScore: 999,
