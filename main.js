@@ -12,7 +12,6 @@ const {
 } = require('@whiskeysockets/baileys');
 
 const config = require('./config');
-const { randomImage } = require('./lib/images');
 const events = require('./arslan');
 const { sms } = require('./lib/msg');
 const {
@@ -463,7 +462,7 @@ async function arslanPair(number, res = null) {
                     try {
                         profilePicUrl = await conn.profilePictureUrl(participantJid, 'image');
                     } catch (e) {
-                        profilePicUrl = randomImage();
+                        profilePicUrl = config.IMAGE_PATH;
                     }
 
                     await conn.sendMessage(groupJid, {
