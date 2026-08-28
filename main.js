@@ -31,7 +31,6 @@ const {
 } = require('./lib/database');
 const { handleAntidelete } = require('./lib/antidelete');
 const { isSudo } = require('./lib/sudo');
-const { styleReply } = require('./lib/style');
 
 const express = require('express');
 const fs = require('fs-extra');
