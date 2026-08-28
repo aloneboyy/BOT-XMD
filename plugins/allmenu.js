@@ -22,26 +22,24 @@ cmd({
             grouped[cmd.category].push(cmd.pattern);
         }
 
-        let menuText = "";
-        for (const cat in grouped) {
-            menuText += `\n🧚‍♀️ *${cat.toUpperCase()}*\n`;
-            menuText += grouped[cat].map(c => `💫 ${c}`).join("\n") + "\n";
-        }
-
         const time = moment().tz("Africa/Kampala").format("HH:mm:ss");
         const date = moment().tz("Africa/Kampala").format("dddd, MMMM Do YYYY");
 
-        const caption = `
-╭━━━《 *ᴋᴀɪʀᴏ-ᴍᴅ* 》━━━┈⊷
-┃ ✦╭─────────────┈⊷
-┃ ✦│▸ Total Commands : *${totalCommands}*
-┃ ✦│▸ Time           : ${time}
-┃ ✦│▸ Date           : ${date}
-┃ ✦│▸ Platform       : arslanmd.xo.je
-┃ ✦╰─────────────┈⊷
-╰━━━━━━━━━━━━┈⊷
-${menuText}
-`.trim();
+        let caption = `╭┄┄『\`KAIRO-XMD\`』\n`;
+        caption += `│✦ Total Commands : *${totalCommands}*\n`;
+        caption += `│✦ Time           : ${time}\n`;
+        caption += `│✦ Date           : ${date}\n`;
+        caption += `│✦ Platform       : kairodev.xo.je\n`;
+
+        for (const cat in grouped) {
+            caption += `│\n`;
+            caption += `│✦ *${cat.toUpperCase()}*\n`;
+            for (const c of grouped[cat]) {
+                caption += `│  ▸ ${c}\n`;
+            }
+        }
+
+        caption += `╰┄┄┄┄┄┄┄┄┄┄┄┄⪼`;
 
         await conn.sendMessage(m.chat, {
             image: { url: "https://files.catbox.moe/prkkzj.png" },
@@ -51,7 +49,7 @@ ${menuText}
                 isForwarded: true,
                 mentionedJid: [m.sender],
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363348739987203@newsletter",
+                    newsletterJid: "120363413253579833@newsletter",
                     newsletterName: "KAIRO DEV BOT²",
                     serverMessageId: 2,
                 },
